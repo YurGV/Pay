@@ -17,22 +17,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "old_user_table")
+@Table(name = "new_old_user_table")
 public class OldUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	private String firstName;
+	private String cardName;
 
-	private String lastName;
+	private Double balance;
 
-	private Date birthdate;
+	private Date valid;
 
 	private String avatarFileName;
 
-	@Column(name = "isMale")
-	private Boolean male;
+	@Column(name = "isLock")
+	private Boolean lock;
 
 }

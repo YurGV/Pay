@@ -8,6 +8,6 @@ import by.grodno.pvt.site.webappsample.domain.OldUser;
 
 public interface UserRepo extends JpaRepository<OldUser, Integer> {
 
-	List<OldUser> findByFirstName(String firstName);
+	List<OldUser> findByCardName(String cardName);
 
 }

@@ -14,22 +14,21 @@
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
-				<th scope="col">Image</th>
+
 				<th scope="col">Id</th>
-				<th scope="col">Firstname</th>
-				<th scope="col">Lastname</th>
-				<th scope="col">Male</th>
+				<th scope="col">Cardname</th>
+
+				<th scope="col">Lock</th>
 				<th scope="col">Upload img</th>
 			</tr>
 		</thead>
 
 		<tr th:each="user : ${users}">
-			<td><img th:src="@{/users/{uid}/img(uid=${user.id})}" width="100"
-				height="100" alt=""></td>
+
 			<td th:text="${user.id}" />
-			<td th:text="${user.firstName}" />
-			<td th:text="${user.lastName}" />
-			<td th:text="${user.male}" />
+			<td th:text="${user.cardName}" />
+
+			<td th:text="${user.lock}" />
 			<td>
 				<form method="POST" enctype="multipart/form-data" th:action="@{/users/{uid}/img(uid=${user.id})}">
 					<table>

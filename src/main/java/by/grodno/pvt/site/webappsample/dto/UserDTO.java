@@ -6,8 +6,7 @@ import lombok.Data;
 public class UserDTO {
 
 	private Integer id;
-	private String firstName;
-	private String lastName;
-	private Boolean male;
+	private String cardName;
+	private Boolean lock;
 
 }

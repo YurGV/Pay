@@ -51,18 +51,23 @@ public class JPAUserService implements UserService, InitializingBean {
 	}
 
 	@Override
-	public List<OldUser> findByFName(String fname) {
-		return repo.findByFirstName(fname);
+	public List<OldUser> findByFName(String cname) {
+		return repo.findByCardName(cname);
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		OldUser oldUser = new OldUser(null, "Maxim", "Naumovich", null, "a;slfjghhzbzygh", true);
-		OldUser oldUser2 = new OldUser(null, "Sasha", "Siaroga", null, null, true);
-		OldUser oldUser3 = new OldUser(null, "Siaroga", "Sasha", null, null, true);
+		OldUser oldUser = new OldUser(null, "Visa", 100.01, null, "a;slfjghhzbzygh", true);
+		OldUser oldUser2 = new OldUser(null, "Maestro", 550.10, null, null, true);
+		OldUser oldUser3 = new OldUser(null, "MastreCard", 200.36, null, null, true);
+		OldUser oldUser4 = new OldUser(null, "BelCard", 5600.6, null, null, false);
+
+
 		repo.save(oldUser);
 		repo.save(oldUser2);
 		repo.save(oldUser3);
+		repo.save(oldUser4);
+
 	}
 
 	@Override
