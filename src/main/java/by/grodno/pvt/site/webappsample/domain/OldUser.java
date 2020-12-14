@@ -28,7 +28,7 @@ public class OldUser {
 
 	private Double balance;
 
-	private Date valid;
+	private Integer valid;
 
 	private String avatarFileName;
 

@@ -16,8 +16,9 @@
 			<tr>
 
 				<th scope="col">Id</th>
-				<th scope="col">Cardname</th>
-
+				<th scope="col">Card Name</th>
+				<th scope="col">Balance</th>
+				<th scope="col">Valid</th>
 				<th scope="col">Lock</th>
 				<th scope="col">Upload img</th>
 			</tr>
@@ -27,18 +28,17 @@
 
 			<td th:text="${user.id}" />
 			<td th:text="${user.cardName}" />
-
+			<td th:text="${user.balance}" />
+			<td th:text="${user.valid}" />
 			<td th:text="${user.lock}" />
 			<td>
 				<form method="POST" enctype="multipart/form-data" th:action="@{/users/{uid}/img(uid=${user.id})}">
 					<table>
 						<tr>
-							<td>File to upload:</td>
-							<td><input type="file" name="file" /></td>
-						</tr>
-						<tr>
 							<td></td>
-							<td><input type="submit" value="Upload" /></td>
+							<td><input type="submit" value="Pay" /></td>
+							<td><input type="submit" value="Lock" /></td>
+							<td><input type="submit" value="Replenishment" /></td>
 						</tr>
 					</table>
 				</form>
