@@ -1,6 +1,7 @@
 package by.grodno.pvt.site.webappsample.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,11 +57,17 @@ public class JPAUserService implements UserService, InitializingBean {
 	}
 
 	@Override
+	public Optional<OldUser> findByUserName(String userName) {
+		return repo.findByUsername(userName);
+	}
+
+
+	@Override
 	public void afterPropertiesSet() throws Exception {
-		OldUser oldUser = new OldUser(null, "Visa", 100.01, 2021, "a;slfjghhzbzygh", true);
-		OldUser oldUser2 = new OldUser(null, "Maestro", 550.10, 2022, null, true);
-		OldUser oldUser3 = new OldUser(null, "MastreCard", 200.36, 2023, null, true);
-		OldUser oldUser4 = new OldUser(null, "BelCard", 5600.6, 2025, null, false);
+		OldUser oldUser = new OldUser(null, "Visa", 100.01, 2021, "a;slfjghhzbzygh", true, "max","max","ADMIN");
+		OldUser oldUser2 = new OldUser(null, "Maestro", 550.10, 2022, null, true,"q","q","USER");
+		OldUser oldUser3 = new OldUser(null, "MastreCard", 200.36, 2023, null, true,"w","w","USER");
+		OldUser oldUser4 = new OldUser(null, "BelCard", 5600.6, 2025, null, false,"e","e","USER");
 
 
 		repo.save(oldUser);
@@ -69,6 +76,7 @@ public class JPAUserService implements UserService, InitializingBean {
 		repo.save(oldUser4);
 
 	}
+
 
 	@Override
 	public OldUser getUser(Integer id) {

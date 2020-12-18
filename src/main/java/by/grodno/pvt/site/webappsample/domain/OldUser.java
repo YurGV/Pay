@@ -35,4 +35,7 @@ public class OldUser {
 	@Column(name = "isLock")
 	private Boolean lock;
 
+	private String username;
+	private String password;
+	private String role;
 }
