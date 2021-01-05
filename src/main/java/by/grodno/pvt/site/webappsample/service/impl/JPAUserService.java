@@ -88,4 +88,12 @@ public class JPAUserService implements UserService, InitializingBean {
 		repo.save(user);
 
 	}
+
+	public void saveUserTest(OldUser user) {
+		repo.save(user);
+	}
+
+	public void updateUserName(OldUser user) {
+		repo.updateUserName(user.getCardName(), user.getId());
+	}
 }
