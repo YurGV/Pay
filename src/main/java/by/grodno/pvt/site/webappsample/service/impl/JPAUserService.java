@@ -3,6 +3,7 @@ package by.grodno.pvt.site.webappsample.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import by.grodno.pvt.site.webappsample.dto.UserDTO;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -61,6 +62,11 @@ public class JPAUserService implements UserService, InitializingBean {
 		return repo.findByUsername(userName);
 	}
 
+	@Override
+	public void edit(UserDTO userDTO) {
+		return;
+	}
+
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -77,7 +83,6 @@ public class JPAUserService implements UserService, InitializingBean {
 
 	}
 
-
 	@Override
 	public OldUser getUser(Integer id) {
 		return repo.getOne(id);
@@ -86,14 +91,27 @@ public class JPAUserService implements UserService, InitializingBean {
 	@Override
 	public void saveUser(OldUser user) {
 		repo.save(user);
-
 	}
 
 	public void saveUserTest(OldUser user) {
 		repo.save(user);
 	}
 
-	public void updateUserName(OldUser user) {
-		repo.updateUserName(user.getCardName(), user.getId());
+	public void updateUserName(String cardName, Integer id) {
+		repo.updateUserName(cardName, id);
 	}
+	public void updateStatusCard(boolean lock, Integer id) {
+		repo.updateStatusCard(lock, id);
+	}
+	public void updateBalancePlus(Double balance, Integer id) {
+		repo.updateBalancePlus(balance, id);
+	}
+
+
+	@Override
+	public OldUser getUser(Boolean lock) {
+		return repo.getOne(lock.compareTo(true));
+	}
+
+
 }

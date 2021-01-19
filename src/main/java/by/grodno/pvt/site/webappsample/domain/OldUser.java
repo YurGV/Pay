@@ -1,17 +1,10 @@
 package by.grodno.pvt.site.webappsample.domain;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -20,14 +13,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "new_old_user_table")
 public class OldUser {
 
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	private String cardName;
-
 	private Double balance;
-
 	private Integer valid;
 
 	private String avatarFileName;
@@ -39,5 +31,12 @@ public class OldUser {
 	private String password;
 	private String role;
 
+	public Boolean getLock() {
+		return lock;
+	}
+
+	public void setLock(Boolean lock) {
+		this.lock = lock;
+	}
 
 }

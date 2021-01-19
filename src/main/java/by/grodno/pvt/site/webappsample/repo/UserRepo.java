@@ -19,6 +19,21 @@ public interface UserRepo extends JpaRepository<OldUser, Integer> {
 	Optional<OldUser> findByUsername(String userName);
 
 	@Modifying
-	@Query("UPDATE OldUser SET firstName = :uname WHERE id = :id")
-	void updateUserName(@Param("uname") String username, @Param("id") Integer userId);
+	@Query("UPDATE OldUser c SET c.cardName = :Name WHERE c.id = :id")
+	void updateUserName(@Param("Name") String cardName, @Param("id") Integer userId);
+
+	@Modifying
+	@Query("UPDATE OldUser c SET c.lock = :lock WHERE c.id = :id")
+	void updateStatusCard(@Param("lock") Boolean lock, @Param("id") Integer userId);
+
+//	@Modifying
+//	@Query("UPDATE OldUser c SET c.balance = :balance WHERE c.id = :id")
+//	void updateBalancePlus(@Param("balance") Double balance, @Param("id") Integer userId);
+
+	@Modifying
+	@Query("UPDATE OldUser c SET c.balance = :balance + balance WHERE c.id = :id")
+	void updateBalancePlus(@Param("balance") Double balance, @Param("id") Integer userId);
+
+
+
 }

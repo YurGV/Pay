@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<div class="row justify-content-center p-3">
+    <p>
+        Hello, <span sec:authentication="principal.username">Udefined</span>!
+    </p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="border col-lg-1">Image</div>
+        <div class="border col-lg-1"> <a class="p-2" th:href="@{'/users'+'?fieldName=id'}">Id </a></div>
+        <div class="border col-lg-2">
+            <a class="p-2" th:href="@{'/users'+'?fieldName=cardName'}">Firstname</a>
+        </div>
+        <div class="border col-lg-2"> <a class="p-2" th:href="@{'/users'+'?fieldName=balance'}"> Lastname </a> </div>
+        <div class="border col-lg-1" sec:authorize="hasRole('ROLE_ADMIN')">Edit</div>
+        <div class="border col-lg-1">Buy user</div>
+        <div class="border col-lg-4" sec:authorize="hasRole('ROLE_ADMIN')">Upload
+            img</div>
+    </div>
+
+    <div class="row" th:each="user : ${users}">
+        <div class="border justify-content-center col-lg-1 p-2">
+            <img th:src="@{/users/{uid}/img(uid=${user.id})}" width="75"
+                 height="75" alt="">
+        </div>
+        <div class="border col-lg-1" th:text="${user.id}"></div>
+        <div class="border col-lg-2" th:text="${user.cardName}"></div>
+        <div class="border col-lg-2" th:text="${user.balance}"></div>
+
+        <div class="border col-lg-1">
+            <a class="btn btn-link">Edit</a>
+        </div>
+        <div class="border col-lg-1">
+            <a class="btn btn-link">Buy</a>
+        </div>
+        <div class="border col-lg-4" > </div>
+                <div class="custom-file"> </div>
+                    <input type="submit" value="Upload" />
+                </div>
+        </div>
+<br />
+<br />
+
+</body>
+</html>

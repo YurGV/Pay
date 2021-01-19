@@ -3,6 +3,7 @@ package by.grodno.pvt.site.webappsample.service;
 import java.util.List;
 import java.util.Optional;
 
+import by.grodno.pvt.site.webappsample.dto.UserDTO;
 import org.springframework.data.domain.Page;
 
 import by.grodno.pvt.site.webappsample.domain.OldUser;
@@ -26,4 +27,9 @@ public interface UserService {
 	List<OldUser> findByFName(String fname);
 
 	Optional<OldUser> findByUserName(String username);
+
+	void edit(UserDTO userDTO);
+
+   OldUser getUser(Boolean lock);
+
 }
