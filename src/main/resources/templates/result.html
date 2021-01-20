@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+    <p th:text="'id: ' + ${userEx.id}" />
+    <p th:text="'cardName: ' + ${userEx.cardName}" />
+    <p th:text="'balance: ' + ${userEx.balance}" />
+    <p th:text="'valid: ' + ${userEx.valid}" />
+    <p th:text="'lock: ' + ${userEx.lock}" />
+<a href="/userEx">Submit another message</a>
+</body>
+</html>

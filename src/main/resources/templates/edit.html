@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Welcome</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<center>
+	<h1>Welcome to Pay System from Yura</h1>
+	<h2 th:utext="${message}"></h2>
+	<!--
+       In Thymeleaf the equivalent of
+       JSP's ${pageContext.request.contextPath}/edit.html
+       would be @{/edit.html}
+     -->
+	<a th:href="@{/login}">Authorisation</a>
+</center>
+</body>
+
+</html><!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Edit User</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css"
+		  integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG"
+		  crossorigin="anonymous">
+</head>
+
+
+
+<body class="bg-light">
+
+<p>
+<form th:action="@{/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+
+	<table class="table table-hover">
+		<thead>
+		<tr>
+			<th>Card Name</th>
+			<th>Balance</th>
+			<th>Valid</th>
+			<th>Lock</th>
+
+		</tr>
+		</thead>
+
+		<tbody>
+		<tr class="table-light">
+			<td>
+				<input type="text" name="cardName" th:field="${user.cardName}" >
+			</td>
+			<td>
+				<input type="text" name="balance" th:field="${user.balance}" >
+			</td>
+			<td>
+				<input type="integer" name="valid" th:value="${user.valid}" >
+			</td>
+			<td>
+				<input type="text" name="lock" th:value="${user.lock}" >
+			</td>
+			<td>
+				<input type="text" name="username" th:value="${user.username}" >
+			</td>
+			<td>
+				<input type="text" name="password" th:value="${user.password}" >
+			</td>
+
+
+		</tr>
+
+	</table>
+	<div class="row justify-content-center  p-1">
+		<input class="btn btn-primary" type="submit" value="Edit" />
+	</div>
+</form>
+</body>
+</html>

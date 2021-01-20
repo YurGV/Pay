@@ -1,0 +1,26 @@
+html,
+body {
+    height: 120%;
+}
+
+body {
+    color: white;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background: url("../images/intro.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1260px;
+
+}
+
+.lh-condensed {
+    line-height: 1.25;
+}
